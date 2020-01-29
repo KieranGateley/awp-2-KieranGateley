@@ -17,6 +17,7 @@ class CreatePluginVersionsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('plugin_id');
             $table->string('version');
+            $table->text('update_description')->nullable(true);
             $table->timestamps();
         });
     }
