@@ -1,5 +1,7 @@
 @extends('bases.container')
 
+@section('title', 'Verify Email Address')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
