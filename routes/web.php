@@ -11,5 +11,9 @@ Route::get('/plugins/create', 'PluginController@create')->name('create_plugin');
 
 Route::post('/plugins/create', 'PluginController@store')->name('create_plugin');
 
+Route::get('/plugins/update/{plugin}', 'PluginController@edit')->name('edit_plugin');
+
+Route::post('/plugins/update/{plugin}', 'PluginController@update')->name('edit_plugin');
+
 Auth::routes();
 
