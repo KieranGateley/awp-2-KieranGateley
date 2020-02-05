@@ -21,7 +21,7 @@ class CreatePluginsTable extends Migration
             $table->text('authors')->nullable(true);
             $table->text('website')->nullable(true);
             $table->text('dependencies')->nullable(true);
-            $table->text('soft-dependencies')->nullable(true);
+            $table->text('soft_dependencies')->nullable(true);
             $table->timestamps();
         });
     }
