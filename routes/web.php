@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/plugins', 'PluginController@index')->name('all_plugins');
 
+Route::get('/plugins/{plugin}', 'PluginController@show')->name('view_plugin');
+
 Auth::routes();
 
 
