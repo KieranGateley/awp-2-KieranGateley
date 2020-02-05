@@ -1,6 +1,6 @@
 @extends('bases.container')
 
-@section('title', 'All Users')
+@section('title', 'All Plugins')
 
 @section('scripts')
     $(document).ready(function(){ $('#plugin').DataTable(); });
