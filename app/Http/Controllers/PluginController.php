@@ -24,6 +24,7 @@ class PluginController extends Controller {
             'dependencies' => $request->input('dependencies'),
             'soft_dependencies' => $request->input('soft_dependencies'),
         ]);
+        return redirect()->route('all_plugins');
     }
 
     public function show(Plugin $plugin) {
@@ -44,10 +45,11 @@ class PluginController extends Controller {
             'dependencies' => $request->input('dependencies'),
             'soft_dependencies' => $request->input('soft_dependencies'),
         ]);
+        return redirect()->route('all_plugins');
     }
 
     public function destroy(Plugin $plugin) {
         $plugin->delete();
-        return redirect()->route('home');
+        return redirect()->route('all_plugins');
     }
 }
