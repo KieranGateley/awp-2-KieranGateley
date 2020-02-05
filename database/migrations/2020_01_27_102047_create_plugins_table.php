@@ -15,7 +15,6 @@ class CreatePluginsTable extends Migration
     {
         Schema::create('plugins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('server_id');
             $table->string('name');
             $table->text('description')->nullable(true);
             $table->text('authors')->nullable(true);
