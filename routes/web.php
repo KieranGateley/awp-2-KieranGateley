@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/plugins/create', 'PluginController@create')->name('create_plugin');
 
