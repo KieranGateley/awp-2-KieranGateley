@@ -9,6 +9,6 @@ class PluginVersion extends Model
     protected $fillable = ['plugin_id', 'version', 'update_description'];
 
     public function plugin() {
-        return $this->belongsTo('App\Plugin');
+        return $this->belongsTo('App\Plugin', 'plugin_name');
     }
 }

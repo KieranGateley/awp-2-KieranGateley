@@ -15,7 +15,7 @@ class CreatePluginVersionsTable extends Migration
     {
         Schema::create('plugin_versions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('plugin_id');
+            $table->string('plugin_name');
             $table->string('version');
             $table->text('update_description')->nullable(true);
             $table->timestamps();
