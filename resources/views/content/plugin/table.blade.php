@@ -23,7 +23,7 @@
                         'name' => $plugin->name,
                         'description' => $plugin->description,
                         'authors' => $plugin->authors,
-                        'website' => $plugin->website,
+                        'website' => $linkify->process($plugin->website),
                         'dependencies' => $plugin->dependencies,
                         'soft_dependencies' => $plugin->soft_dependencies,
                     ])

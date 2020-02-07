@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Plugin;
 use Illuminate\Http\Request;
+use Misd\Linkify\Linkify;
 
 class PluginController extends Controller {
 
     public function index() {
-        return view('content.plugin.table', ['plugins' => Plugin::all()]);
+        return view('content.plugin.table', ['plugins' => Plugin::all(), 'linkify' => new Linkify()]);
     }
 
     public function create() {
