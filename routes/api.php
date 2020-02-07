@@ -7,11 +7,11 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::get('plugins/{id}', 'ApiPluginController@show');
 
-    Route::get('plugins/create', 'ApiPluginController@store');
+    Route::post('plugins/create', 'ApiPluginController@store');
 
-    Route::get('plugins/update/{id}', 'ApiPluginController@update');
+    Route::post('plugins/update/{id}', 'ApiPluginController@update');
 
-    Route::get('plugins/delete/{id}', 'ApiPluginController@delete');
+    Route::delete('plugins/delete/{id}', 'ApiPluginController@delete');
 
 });
 
