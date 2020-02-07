@@ -12,6 +12,8 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::post('plugins/update/{id}', 'ApiPluginController@update');
 
+    Route::post('plugins/add', 'ApiPluginController@createIfNotExists');
+
     Route::delete('plugins/delete/{id}', 'ApiPluginController@delete');
 
 });

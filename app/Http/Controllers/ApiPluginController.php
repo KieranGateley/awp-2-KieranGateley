@@ -41,6 +41,30 @@ class ApiPluginController extends Controller
         return $plugin;
     }
 
+    public function createIfNotExists(Request $request) {
+        $plugin = Plugin::find($request->input('name'));
+        if (!isset($plugin)) {
+            return Plugin::create([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'authors' => $request->input('authors'),
+                'website' => $request->input('website'),
+                'dependencies' => $request->input('dependencies'),
+                'soft_dependencies' => $request->input('soft_dependencies'),
+            ]);
+        } else {
+            $plugin->update([
+                'name' => $request->input('name'),
+                'description' => $request->input('description'),
+                'authors' => $request->input('authors'),
+                'website' => $request->input('website'),
+                'dependencies' => $request->input('dependencies'),
+                'soft_dependencies' => $request->input('soft_dependencies'),
+            ]);
+            return $plugin;
+        }
+    }
+
     public function destroy($id) {
         $plugin = Plugin::findOrFail($id);
         $plugin->delete();
