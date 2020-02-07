@@ -17,7 +17,7 @@
         </thead>
         @isset($versions)
             @foreach($versions as $version)
-                @include('parts.plugin.version.row', ['version' => $version->version, 'description' => $version->description])
+                @include('parts.version.row', ['version' => $version->version, 'description' => $version->description])
             @endforeach
         @endisset
     </table>
