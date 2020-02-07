@@ -3,7 +3,7 @@
 @section('title', 'All Plugins')
 
 @section('scripts')
-    $(document).ready(function(){ $('#plugin').DataTable(); });
+    $(document).ready(function(){ $('#plugins').DataTable(); });
 @endsection
 
 @section('content')
