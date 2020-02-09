@@ -18,11 +18,10 @@ class PluginVersionController extends Controller {
     }
 
     public function store(Request $request, Plugin $plugin) {
-        $version = PluginVersion::create([
+        $plugin->versions()->create([
             'version' => $request->input('version'),
             'description' => $request->input('description'),
         ]);
-        $plugin->versions()->save($version);
         return redirect()->route('home');
     }
 
