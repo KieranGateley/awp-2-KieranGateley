@@ -17,11 +17,11 @@
         </tr>
         </thead>
         @foreach ($versions as $version)
-            @include('parts.plugin.row', [
+            @include('parts.version.full_row', [
                         'plugin' => $version->plugin->name,
                         'version' => $version->version,
                         'description' => $version->description,
-                        'created_on' => $version->created_on
+                        'created_on' => $version->created_at
                     ])
         @endforeach
     </table>
