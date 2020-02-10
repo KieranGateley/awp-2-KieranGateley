@@ -25,6 +25,11 @@ class ApiPluginController extends Controller
             'dependencies' => str_replace(',', ', ', $request->input('dependencies')),
             'soft_dependencies' => str_replace(',', ', ', $request->input('soft_dependencies')),
         ]);
+        if ($request->has('version')) {
+            $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
+            if (!isset($version)) { $plugin->versions()->create(['version' => $request->input('version')]); }
+        }
+        return $plugin;
     }
 
     public function update(Request $request, $id) {
@@ -44,14 +49,7 @@ class ApiPluginController extends Controller
     public function createIfNotExists(Request $request) {
         $plugin = Plugin::find($request->input('name'));
         if (!isset($plugin)) {
-            return Plugin::create([
-                'name' => $request->input('name'),
-                'description' => $request->input('description'),
-                'authors' => $request->input('authors'),
-                'website' => $request->input('website'),
-                'dependencies' => $request->input('dependencies'),
-                'soft_dependencies' => $request->input('soft_dependencies'),
-            ]);
+            return $this->store($request);
         } else {
             $plugin->update([
                 'name' => $request->input('name'),
@@ -61,6 +59,12 @@ class ApiPluginController extends Controller
                 'dependencies' => str_replace(',', ', ', $request->input('dependencies')),
                 'soft_dependencies' => str_replace(',', ', ', $request->input('soft_dependencies')),
             ]);
+            if ($request->has('version')) {
+                $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
+                if (!isset($version)) {
+                    $plugin->versions()->create(['version' => $request->input('version')]);
+                }
+            }
             return $plugin;
         }
     }
