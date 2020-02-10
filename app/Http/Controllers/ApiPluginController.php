@@ -34,6 +34,10 @@ class ApiPluginController extends Controller
 
     public function update(Request $request, $id) {
         $plugin = Plugin::findOrFail($id);
+        return $this->updateRecord($request, $plugin);
+    }
+
+    private function updateRecord(Request $request, Plugin $plugin) {
         $plugin->update([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -42,7 +46,10 @@ class ApiPluginController extends Controller
             'dependencies' => $request->input('dependencies'),
             'soft_dependencies' => $request->input('soft_dependencies'),
         ]);
-
+        if ($request->has('version')) {
+            $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
+            if (!isset($version)) { $plugin->versions()->create(['version' => $request->input('version')]); }
+        }
         return $plugin;
     }
 
@@ -51,21 +58,7 @@ class ApiPluginController extends Controller
         if (!isset($plugin)) {
             return $this->store($request);
         } else {
-            $plugin->update([
-                'name' => $request->input('name'),
-                'description' => $request->input('description'),
-                'authors' => $request->input('authors'),
-                'website' => $request->input('website'),
-                'dependencies' => str_replace(',', ', ', $request->input('dependencies')),
-                'soft_dependencies' => str_replace(',', ', ', $request->input('soft_dependencies')),
-            ]);
-            if ($request->has('version')) {
-                $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
-                if (!isset($version)) {
-                    $plugin->versions()->create(['version' => $request->input('version')]);
-                }
-            }
-            return $plugin;
+            return $this->updateRecord($request, $plugin);
         }
     }
 
