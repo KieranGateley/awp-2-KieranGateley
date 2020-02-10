@@ -17,13 +17,13 @@ class ApiPluginController extends Controller
     }
 
     public function store(Request $request) {
-        return Plugin::create([
+        $plugin = Plugin::create([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'authors' => $request->input('authors'),
             'website' => $request->input('website'),
-            'dependencies' => $request->input('dependencies'),
-            'soft_dependencies' => $request->input('soft_dependencies'),
+            'dependencies' => str_replace(',', ', ', $request->input('dependencies')),
+            'soft_dependencies' => str_replace(',', ', ', $request->input('soft_dependencies')),
         ]);
     }
 
@@ -58,8 +58,8 @@ class ApiPluginController extends Controller
                 'description' => $request->input('description'),
                 'authors' => $request->input('authors'),
                 'website' => $request->input('website'),
-                'dependencies' => $request->input('dependencies'),
-                'soft_dependencies' => $request->input('soft_dependencies'),
+                'dependencies' => str_replace(',', ', ', $request->input('dependencies')),
+                'soft_dependencies' => str_replace(',', ', ', $request->input('soft_dependencies')),
             ]);
             return $plugin;
         }
