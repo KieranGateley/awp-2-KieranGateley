@@ -20,6 +20,7 @@
         </thead>
         @foreach ($plugins as $plugin)
             @include('parts.plugin.row', [
+                        'plugin' => $plugin,
                         'name' => $plugin->name,
                         'description' => $plugin->description,
                         'authors' => $plugin->authors,
