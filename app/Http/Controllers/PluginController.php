@@ -22,6 +22,7 @@ class PluginController extends Controller {
             'description' => $request->input('description'),
             'authors' => $request->input('authors'),
             'website' => $request->input('website'),
+            'spigot_id' => $request->input('spigot'),
             'dependencies' => $request->input('dependencies'),
             'soft_dependencies' => $request->input('soft_dependencies'),
         ]);
@@ -43,6 +44,7 @@ class PluginController extends Controller {
             'description' => $request->input('description'),
             'authors' => $request->input('authors'),
             'website' => $request->input('website'),
+            'spigot_id' => $request->input('spigot'),
             'dependencies' => $request->input('dependencies'),
             'soft_dependencies' => $request->input('soft_dependencies'),
         ]);

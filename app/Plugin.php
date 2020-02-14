@@ -10,7 +10,7 @@ class Plugin extends Model
     public $incrementing = false;
     protected $keyType = 'string';
 
-    protected $fillable = ['name', 'description', 'authors', 'website', 'dependencies', 'soft_dependencies'];
+    protected $fillable = ['name', 'description', 'authors', 'website', 'spigot_id', 'dependencies', 'soft_dependencies'];
 
     public function versions() {
         return $this->hasMany('App\PluginVersion', 'plugin_name');

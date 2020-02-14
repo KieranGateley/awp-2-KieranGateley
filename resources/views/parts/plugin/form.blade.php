@@ -21,6 +21,11 @@
     </div>
     <p></p>
     <div id="form-group">
+        <label for="spigot-input">Spigot ID</label>
+        <input name="spigot" value="{{ $spigot_id ?? "" }}" class="form-control" id="spigot-input">
+    </div>
+    <p></p>
+    <div id="form-group">
         <label for="dependencies-input">Dependencies</label>
         <input name="dependencies" value="{{ $dependencies ?? "" }}" class="form-control" id="dependencies-input">
     </div>

@@ -18,6 +18,7 @@ class CreatePluginsTable extends Migration
             $table->text('description')->nullable(true);
             $table->text('authors')->nullable(true);
             $table->text('website')->nullable(true);
+            $table->string('spigot_id')->nullable(true);
             $table->text('dependencies')->nullable(true);
             $table->text('soft_dependencies')->nullable(true);
             $table->timestamps();
