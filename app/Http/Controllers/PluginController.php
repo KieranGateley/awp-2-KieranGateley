@@ -17,15 +17,7 @@ class PluginController extends Controller {
     }
 
     public function store(Request $request) {
-        Plugin::create([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'authors' => $request->input('authors'),
-            'website' => $request->input('website'),
-            'spigot_id' => $request->input('spigot'),
-            'dependencies' => $request->input('dependencies'),
-            'soft_dependencies' => $request->input('soft_dependencies'),
-        ]);
+        (new ApiPluginController)->store($request);
         return redirect()->route('all_plugins');
     }
 
@@ -39,15 +31,7 @@ class PluginController extends Controller {
     }
 
     public function update(Request $request, Plugin $plugin) {
-        $plugin->update([
-            'name' => $request->input('name'),
-            'description' => $request->input('description'),
-            'authors' => $request->input('authors'),
-            'website' => $request->input('website'),
-            'spigot_id' => $request->input('spigot'),
-            'dependencies' => $request->input('dependencies'),
-            'soft_dependencies' => $request->input('soft_dependencies'),
-        ]);
+        (new ApiPluginController)->update($request, $plugin->name);
         return redirect()->route('all_plugins');
     }
 
