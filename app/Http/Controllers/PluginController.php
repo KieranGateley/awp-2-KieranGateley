@@ -22,7 +22,7 @@ class PluginController extends Controller {
     }
 
     public function show(Plugin $plugin) {
-        return view('content.plugin.view', ['plugin' => $plugin]);
+        return view('content.plugin.view', ['plugin' => $plugin, 'linkify' => new Linkify()]);
     }
 
 
