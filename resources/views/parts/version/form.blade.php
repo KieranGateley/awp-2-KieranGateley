@@ -11,6 +11,11 @@
     </div>
     <p></p>
     <div id="form-group">
+        <label for="link-input">Download Link</label>
+        <input name="link" value="{{ $link ?? "" }}" class="form-control" id="link-input">
+    </div>
+    <p></p>
+    <div id="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
