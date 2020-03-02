@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/', function () {
-    return view('content.homepage');
+    return view('content.homepage', ['versions' => App\PluginVersion::latest()->paginate(10), ]);
 })->name('home');
 
 Route::get('/plugins', 'PluginController@index')->name('all_plugins');

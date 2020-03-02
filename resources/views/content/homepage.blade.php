@@ -2,4 +2,15 @@
 
 @section('title', 'Homepage')
 
-@section('content', 'Success!!')
+@section('content')
+
+    @foreach($versions as $version)
+        @include('parts.version.min', [
+                    'name' => $version->plugin()->name,
+                    'version' => $version->version,
+                    'plugin' => $version->plugin(),
+                    'date' => $version->created_at
+                    ])
+    @endforeach
+    {{ $versions->links() }}
+@endsection
