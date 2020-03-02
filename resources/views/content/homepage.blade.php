@@ -8,6 +8,7 @@
         @include('parts.version.min', [
                     'name' => $version->plugin->name,
                     'version' => $version->version,
+                    'description' => $version->description,
                     'plugin' => $version->plugin,
                     'date' => $version->created_at
                     ])
