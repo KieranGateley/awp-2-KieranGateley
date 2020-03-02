@@ -6,9 +6,9 @@
 
     @foreach($versions as $version)
         @include('parts.version.min', [
-                    'name' => $version->plugin()->name,
+                    'name' => $version->plugin->name,
                     'version' => $version->version,
-                    'plugin' => $version->plugin(),
+                    'plugin' => $version->plugin,
                     'date' => $version->created_at
                     ])
     @endforeach
