@@ -1,13 +1,16 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+/** @var Factory $factory */
 
 use App\Plugin;
 use Faker\Generator as Faker;
+use Illuminate\Database\Eloquent\Factory;
 
 $factory->define(Plugin::class, function (Faker $faker) {
-    // TODO: Implement
     return [
-        //
+        'name' => implode('', $faker->words($nbWords = 3)),
+        'description' => $faker->realText(600),
+        'authors' => $faker->userName,
+        'website' => $faker->domainName,
     ];
 });
