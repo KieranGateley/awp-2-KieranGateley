@@ -11,6 +11,6 @@ $factory->define(Plugin::class, function (Faker $faker) {
         'name' => implode('', $faker->words($nbWords = 3)),
         'description' => $faker->realText(600),
         'authors' => $faker->userName,
-        'website' => $faker->domainName,
+        'website' => 'http://' . $faker->domainName,
     ];
 });
