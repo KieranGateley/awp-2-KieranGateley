@@ -14,7 +14,6 @@ class PluginVersionController extends Controller {
 
     public function create(Plugin $plugin)  {
         return view('content.version.create', ['plugin' => $plugin]);
-
     }
 
     public function store(Request $request, Plugin $plugin) {
@@ -29,7 +28,6 @@ class PluginVersionController extends Controller {
     public function show(Plugin $plugin, PluginVersion $version) {
         return view('content.version.view', ['plugin' => $plugin, 'version' => $version]);
     }
-
 
     public function edit(Plugin $plugin, PluginVersion $version) {
         return view('content.version.update', ['plugin' => $plugin, 'version' => $version]);

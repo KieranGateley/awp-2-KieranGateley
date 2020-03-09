@@ -25,7 +25,6 @@ class PluginController extends Controller {
         return view('content.plugin.view', ['plugin' => $plugin, 'linkify' => new Linkify()]);
     }
 
-
     public function edit(Plugin $plugin) {
         return view('content.plugin.update', ['plugin' => $plugin]);
     }

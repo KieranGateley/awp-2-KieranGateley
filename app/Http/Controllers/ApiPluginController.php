@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Plugin;
 use Illuminate\Http\Request;
 
-class ApiPluginController extends Controller
-{
+class ApiPluginController extends Controller {
 
     public function index() {
         return Plugin::all();
@@ -27,7 +26,9 @@ class ApiPluginController extends Controller
         ]);
         if ($request->has('version')) {
             $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
-            if (!isset($version)) { $plugin->versions()->create(['version' => $request->input('version')]); }
+            if (!isset($version)) {
+                $plugin->versions()->create(['version' => $request->input('version')]);
+            }
         }
         return $plugin;
     }
@@ -48,7 +49,9 @@ class ApiPluginController extends Controller
         ]);
         if ($request->has('version')) {
             $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
-            if (!isset($version)) { $plugin->versions()->create(['version' => $request->input('version')]); }
+            if (!isset($version)) {
+                $plugin->versions()->create(['version' => $request->input('version')]);
+            }
         }
         return $plugin;
     }
