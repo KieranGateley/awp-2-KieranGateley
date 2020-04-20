@@ -22,6 +22,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/plugins/{plugin}/versions/update/{version}', 'PluginVersionController@update')->name('edit_version');
 
+    Route::get('/profile', function () { return view('content.profile'); })->name('profile');
+
 });
 
 Route::get('/', function () {
