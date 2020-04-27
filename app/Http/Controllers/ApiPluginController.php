@@ -78,7 +78,7 @@ class ApiPluginController extends Controller {
         if (strpos($url, "spigotmc.org") !== false) {
             $url = str_replace("https://www.spigotmc.org/resources/", "", $url);
             $url = str_replace("/", "", $url);
-            if (is_int($url)) {
+            if (is_numeric($url)) {
                 return (int)$url;
             }
             return (int)substr($url, stripos($url, ".")+1);
