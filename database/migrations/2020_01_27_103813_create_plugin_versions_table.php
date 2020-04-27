@@ -13,6 +13,7 @@ class CreatePluginVersionsTable extends Migration {
             $table->string('version');
             $table->text('description')->nullable(true);
             $table->string('download_url')->nullable(true);
+            $table->bigInteger('release_date')->nullable(true);
             $table->timestamps();
         });
     }
