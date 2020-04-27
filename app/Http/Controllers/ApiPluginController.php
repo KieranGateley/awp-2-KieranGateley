@@ -23,6 +23,7 @@ class ApiPluginController extends Controller {
             'website' => $request->input('website'),
             'dependencies' => str_replace(',', ', ', $request->input('dependencies')),
             'soft_dependencies' => str_replace(',', ', ', $request->input('soft_dependencies')),
+            'spigot_id' => $this->getIdFromUrl($request->input('website')),
         ]);
         if ($request->has('version')) {
             $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
@@ -46,6 +47,7 @@ class ApiPluginController extends Controller {
             'website' => $request->input('website'),
             'dependencies' => $request->input('dependencies'),
             'soft_dependencies' => $request->input('soft_dependencies'),
+            'spigot_id' => $this->getIdFromUrl($request->input('website')),
         ]);
         if ($request->has('version')) {
             $version = $plugin->versions()->where('version', '=', $request->input('version'))->first();
@@ -70,5 +72,17 @@ class ApiPluginController extends Controller {
         $plugin->delete();
 
         return 204;
+    }
+
+    private function getIdFromUrl(string $url) {
+        if (strpos($url, "spigotmc.org") !== false) {
+            $url = str_replace("https://www.spigotmc.org/resources/", "", $url);
+            $url = str_replace("/", "", $url);
+            if (is_int($url)) {
+                return (int)$url;
+            }
+            return (int)substr($url, stripos($url, ".")+1);
+        }
+        return null;
     }
 }
