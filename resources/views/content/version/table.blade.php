@@ -21,7 +21,8 @@
                         'plugin' => $version->plugin->name,
                         'version' => $version->version,
                         'description' => $version->description,
-                        'created_on' => $version->created_at
+                        'created_on' => $version->created_at,
+                        'url' => $version->download_url,
                     ])
         @endforeach
     </table>

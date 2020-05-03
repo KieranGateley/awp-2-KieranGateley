@@ -17,7 +17,7 @@
         </thead>
         @isset($versions)
             @foreach($versions as $version)
-                @include('parts.version.min_row', ['version' => $version->version, 'description' => $version->description])
+                @include('parts.version.min_row', ['version' => $version->version, 'description' => $version->description, 'url' => $version->download_url])
             @endforeach
         @endisset
     </table>
