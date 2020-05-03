@@ -10,6 +10,6 @@
         'authors' => $plugin->authors,
         'dependencies' => $plugin->dependencies,
         'soft_dependencies' => $plugin->soft_dependencies,
-        'versions' => $plugin->versions,
+        'versions' => $plugin->versions->sortByDesc('release_date'),
     ])
 @endsection
