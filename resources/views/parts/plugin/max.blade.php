@@ -21,5 +21,7 @@
             @endforeach
         @endisset
     </table>
+    @if(Auth::check())
     <div class="d-flex justify-content-end"><form action="{{ route('create_version', ['plugin' => $plugin]) }}"><button type="submit" class="btn btn-primary">Add Version</button></form></div>
+    @endif
 </div>
