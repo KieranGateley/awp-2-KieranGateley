@@ -20,7 +20,7 @@ class PluginVersionController extends Controller {
         $plugin->versions()->create([
             'version' => $request->input('version'),
             'description' => $request->input('description'),
-            'download_link' => $request->input('link'),
+            'download_url' => $request->input('link'),
         ]);
         return redirect()->route('home');
     }
@@ -37,7 +37,7 @@ class PluginVersionController extends Controller {
         $version->update([
             'version' => $request->input('version'),
             'description' => $request->input('description'),
-            'download_link' => $request->input('link'),
+            'download_url' => $request->input('link'),
         ]);
         return redirect()->route('home');
     }
