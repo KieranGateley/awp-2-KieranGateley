@@ -1,5 +1,8 @@
 <div id="title" class="border-bottom">
-    <h1 style="display: inline-block;">{{ $name }}</h1>
+    <h1 style="display: inline-block;">{{ $name }}</h1>@if(Auth::check())
+            <a href="{{ route('edit_plugin', ['plugin' => $plugin]) }}"><ion-icon name="pencil-outline"></ion-icon></a>
+            <a href="{{ route('delete_plugin', ['plugin' => $plugin]) }}"><ion-icon name="trash-outline"></ion-icon></a>
+    @endif
 </div>
 <div id="body">
     @isset($authors)<em>Authors: </em>{{ $authors }}<br>@endisset

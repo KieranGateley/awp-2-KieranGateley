@@ -12,7 +12,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('/plugins/update/{plugin}', 'PluginController@update')->name('edit_plugin');
 
-    Route::post('/plugins/delete/{plugin}', 'PluginController@destroy')->name('delete_plugin');
+    Route::get('/plugins/delete/{plugin}', 'PluginController@destroy')->name('delete_plugin');
 
     Route::get('/plugins/{plugin}/versions/create', 'PluginVersionController@create')->name('create_version');
 
