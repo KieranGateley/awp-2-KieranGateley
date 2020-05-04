@@ -35,6 +35,7 @@ class PluginController extends Controller {
     }
 
     public function destroy(Plugin $plugin) {
+        $plugin->versions()->delete();
         $plugin->delete();
         return redirect()->route('all_plugins');
     }

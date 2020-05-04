@@ -69,6 +69,7 @@ class ApiPluginController extends Controller {
 
     public function destroy($id) {
         $plugin = Plugin::findOrFail($id);
+        $plugin->versions()->delete();
         $plugin->delete();
 
         return 204;
