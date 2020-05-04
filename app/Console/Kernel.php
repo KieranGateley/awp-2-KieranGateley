@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 foreach (json_decode($client->get($url)->getBody(), true) as $api_version) {
                     $version = DB::table('plugin_versions')->where('plugin_name', $plugin->name)->where('version', $api_version['name'])->first();
                     if (!isset($version)) {
-                        DB::table('plugin_versions')->insert(['version' => $api_version['name'], 'download_url' => "https://spigotmc.org/" . $api_version['url'], 'release_date' => $api_version['releaseDate'], 'plugin_name' => $plugin->name, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now(),]);
+                        DB::table('plugin_versions')->insert(['version' => $api_version['name'], 'release_date' => $api_version['releaseDate'], 'plugin_name' => $plugin->name, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now(),]);
                     }
                 }
             }
